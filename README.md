@@ -1,6 +1,6 @@
 # README #
 
-### Overview ###
+# Overview #
 CluMP (Clustering of Mate Pairs) is a tool for inferring the presence of structural rearrangements from targeted DNA sequencing data. A two-step algorithm is used to detect these events. The tool first isolates read pairs aligned to different chromosomes or separated by large genomic distances (indicated by large insert sizes) that may indicate a genome rearrangement. Read pairs supporting a similar rearrangement are grouped into clusters and the minimum and maximum genome coordinates are used to define two candidate break point regions, one for each end of a mate pair. The tool next searches within each of these candidate regions for single reads with high base quality (20 default), high mapping quality (30), and a large fraction (33%) of soft-clipped (i.e. unaligned) bases that may indicate possible genomic break-points. A combination of large-insert read-pairs and break-point-spanning reads is taken as indicative of a rearrangement. In addition to the number of supporting events, each candidate breakpoint region is annotated with genome coordinates, a gene annotation (currently derived from the UCSC Gene track) and the number of soft-clipped reads in the region. Note that the tool does not check that the soft-clipped reads support a common breakpoint nor does it compare the soft-clipped region to the paired candidate breakpoint region. However, all reads are written to a new bam file to support manual review of the underlying data. In summary, CluMP extracts large-insert and soft-clipped reads indicative of a rearrangement in targeted DNA sequence data and presents a summary of these counts for further filtering to arrive at a high-confidence list of rearrangements for manual review and confirmation.
 
 ### Execution ###
@@ -24,7 +24,15 @@ Output files and directories are prefixed with a sample name assigned by the Pro
 |NAME.rearrangements.bam|Manual review|A bam file containing only reads supporting the candidate rearrangements identified by CluMP. |
 |NAME.rearrangements.bai|Manual review|Index for bam file, required by IGV and other analysis software.|
 
+## Pilot data ##
 
-### Who do I talk to? ###
+To evaluate the ability of the CluMP algorithm to detect known rearrangements, an early version of the software was run on 14 cases with translocations detected using fluorescent in situ hybridization. Using analysis of large-insert and soft-clipped reads, we uncovered evidence supporting the known event in 10 of 14 cases (blank “Read_pair” entries denote 4 additional samples that were not analyzed):
+
+ 
+
+Notably, all four cases in which a translocation could not be found had IGH rearrangements. This is likely due to incomplete tiling of baits across the IGH region. Furthermore, the full IGH region is not annotated by the UCSC gene track currently used for gene annotation. Therefore the IGH breakpoints are named "intergenic" using the default download of this table. This can be solved by adding additional lines to the ucsc.refgene.txt file that list the genome coordinate for this non-genic region. Alternately, an external program could be used to map the genome coordinates of each breakpoint region to a specific gene or annotation.
+
+
+# Who do I talk to? ###
 
 * Trevor Pugh, trevor.pugh@utoronto.ca

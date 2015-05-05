@@ -29,6 +29,7 @@ min.cluster.size       <- 2
 
 ## Interval list format ##
 A simple 5-column, tab-separated text file with no header.
+
 |Chromosome|Start|End|Strand|Description|
 |1|243649535|244008584|-|AKT3|
 |1|113931475|114230545|+|MAGI3|

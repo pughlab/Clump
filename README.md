@@ -36,14 +36,16 @@ min.cluster.size       <- 2
 ## Interval list format ##
 A simple 5-column, tab-separated text file with no header.
 
-|Chromosome|Start|End|Strand|Description|
-|1|243649535|244008584|-|AKT3|
-|1|113931475|114230545|+|MAGI3|
+|Chromosome|Start    |End      |Strand|Description|
+|----------|---------|---------|------|-----------|
+|1         |243649535|244008584|-     |AKT3       |
+|1         |113931475|114230545|+     |MAGI3      |
 
 ## Output file descriptions ##
 Output files and directories are prefixed with a sample name assigned by the Profile bioinformatics pipeline. Often these names can include an identifier such as BL-13-A12345 as well as run information such as L_00012340_HC_0000056_78. In the table below, this prefix is denoted by “NAME”.
 
-|Filename|Purpose|Description|
+|Filename               |Purpose       |Description|
+|-----------------------|--------------|-----------|
 |NAME.CluMP_run_info.tsv|Record-keeping|A list of parameters and program versions used to generate CluMP output as well as the run date and time.|
 |NAME.rearrangement_counts.tsv|Primary output|A table of all candidate rearrangements, the genes affected, the genome coordinates of the two breakpoint regions, and the number of large-insert and soft-clipped reads supporting each lesion.|
 |NAME.rearrangement_regions.bed|Manual review|A BED file containing the genome coordinates of all candidate rearrangements. This file can be read by the IGV “Region Navigator” to help navigate between breakpoint regions when reviewing the primary or CluMP-generated bam files.|

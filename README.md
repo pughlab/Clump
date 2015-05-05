@@ -14,6 +14,25 @@ CluMP is written in R and uses the rbamtools package (http://cran.r-project.org/
 ~/R-2.15.1/bin/Rscript CluMP.R CluMP.cfg bamfile.bam outdir
 ```
 
+## Configuration file ##
+interval_list.file     <- "/xchip/cga_home/tpugh/AKT3_MAGI3_cell_lines/AKT3_MAGI3.interval_list"
+ucsc.table.file        <- "/xchip/cga_home/tpugh/AKT3_MAGI3_cell_lines/refgene.txt"
+remove.duplicates      <- TRUE #Set to TRUE to ignore duplicate-marked reads
+min.interval.length    <- 100
+min.mapping.quality    <- 30
+min.base.quality       <- 20 #Used to isolate soft-clipped reads, discards reads with min.base.quality.frac bases below min.base.quality
+min.soft.clipped.bases <- 33 #Number of	softclipped base pairs in read required	to keep	read as	evidence of translocation
+min.insert.size        <- 5000
+max.cluster.distance   <- 300
+max.mate.partners      <- 5
+min.cluster.size       <- 2
+
+## Interval list format ##
+A simple 5-column, tab-separated text file with no header.
+|Chromosome|Start|End|Strand|Description|
+|1|243649535|244008584|-|AKT3|
+|1|113931475|114230545|+|MAGI3|
+
 ## Output file descriptions ##
 Output files and directories are prefixed with a sample name assigned by the Profile bioinformatics pipeline. Often these names can include an identifier such as BL-13-A12345 as well as run information such as L_00012340_HC_0000056_78. In the table below, this prefix is denoted by “NAME”.
 

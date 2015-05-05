@@ -109,3 +109,4 @@ Many polyG reads are aligned to this region due to this long stretch of G-rich s
 ## Who do I talk to? ##
 
 * Trevor Pugh, trevor.pugh@utoronto.ca
+* This program was written by Trevor Pugh while at the Center for Advanced Molecular Diagnostics (CAMD) at Brigham and Women's Hospital. This code should not be distributed without consulting both Trevor Pugh and CAMD leadership.

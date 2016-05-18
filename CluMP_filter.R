@@ -53,5 +53,5 @@ write.table(clump_results_filtered,file=paste(out_dir,"/",bas,".filtered",sep=""
 write.table(snap_Breakpoint_1,file=paste(out_dir,"/snap_Breakpoints_1.sh",sep=""),
             quote=FALSE,row.names=FALSE,col.names=FALSE)
 
-write.table(snap_Breakpoint_2,paste(out_dir,"/snap_Breakpoints_2.sh"),
+write.table(snap_Breakpoint_2,paste(out_dir,"/snap_Breakpoints_2.sh",sep=""),
             quote=FALSE,row.names=FALSE,col.names=FALSE)

@@ -44,14 +44,14 @@ snap_Breakpoint_1 <- paste("/mnt/work1/users/pughlab/src/IGVSnapshot/snap ",
 
 ## output filtered breakpoint list
 bas <- basename(CluMP_data_file)
-write.table(clump_results_filtered,file=paste(out_dir,"/",bas,".filtered",sep=""),
+write.table(clump_results_filtered,file=paste(out_dir,"/",bas,".filtered",sep=""),sep="\t",
             quote=FALSE,row.names=FALSE,col.names=TRUE)
 
 
 ## output IGVSnapshot scripts (to be run on samwise) for each breakpoint region in the filtered list
 
-write.table(snap_Breakpoint_1,file=paste(out_dir,"/snap_Breakpoints_1.sh",sep=""),
+write.table(snap_Breakpoint_1,file=paste(out_dir,"/snap_Breakpoints_1.sh",sep=""),sep="\t",
             quote=FALSE,row.names=FALSE,col.names=FALSE)
 
-write.table(snap_Breakpoint_2,paste(out_dir,"/snap_Breakpoints_2.sh",sep=""),
+write.table(snap_Breakpoint_2,paste(out_dir,"/snap_Breakpoints_2.sh",sep=""),sep="\t",
             quote=FALSE,row.names=FALSE,col.names=FALSE)

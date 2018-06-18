@@ -17,7 +17,7 @@ CluMP is written in R and uses the rbamtools package (http://cran.r-project.org/
 ## Configuration file ##
 
 ```
-#!r
+
 
 interval_list.file     <- "AKT3_MAGI3.interval_list" #Genome coordinates to search in interval_list formal
 ucsc.table.file        <- "refgene.txt" #UCSC refgene table used to map breakpoints to genes

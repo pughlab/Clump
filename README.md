@@ -58,7 +58,7 @@ From the Center for Advanced Molecular Diagnostics, Brigham and Women's Hospital
 
 To evaluate the ability of the CluMP algorithm to detect known rearrangements, an early version of the software was run on 14 cases with translocations detected using fluorescent in situ hybridization. Using analysis of large-insert and soft-clipped reads, we uncovered evidence supporting the known event in 10 of 14 cases (blank “Read_pair” entries denote 4 additional samples that were not analyzed):
 
-![clump_pilot_data.png](https://bitbucket.org/repo/LjrKnq/images/4010912555-clump_pilot_data.png) 
+![clump_pilot_data.png]() 
 
 Notably, all four cases in which a translocation could not be found had IGH rearrangements. This is likely due to incomplete tiling of baits across the IGH region. Furthermore, the full IGH region is not annotated by the UCSC gene track currently used for gene annotation. Therefore the IGH breakpoints are named "intergenic" using the default download of this table. This can be solved by adding additional lines to the ucsc.refgene.txt file that list the genome coordinate for this non-genic region. Alternately, an external program could be used to map the genome coordinates of each breakpoint region to a specific gene or annotation.
 

@@ -67,42 +67,42 @@ Notably, all four cases in which a translocation could not be found had IGH rear
 In addition to the table of rearrangements, CluMP outputs a bam file containing only the reads supporting each candidate alteration. Viewing this bam alongside the primary bam file may provide some context to the otherwise isolated reads extracted by CluMP. A second useful visualization method is to view both breakpoint regions simultaneously using IGV’s “View mate region in split screen” option. The following examples show single breakpoint regions:
 
 ### Known BCL2-IGH translocation ###
-![clump_bcl2_IGH_example.png](https://github.com/pughlab/Clump/blob/master/clump_bcl2_IGH_example.png)
+![clump_bcl2_IGH_example.png](https://user-images.githubusercontent.com/10787072/41672187-53fe3740-7487-11e8-99bf-0ce254dc6042.png)
 
 The above screenshot shows reads from the original bam file and reads extracted by CluMP. In the CluMP track, reads colored orange are the large-insert reads with mates mapped to chromosome 14 containing IGH. The multi-colored reads contain soft-clipped bases. In this case, the soft-clipped bases begin at the exact same genome coordinate, suggest this is the exact translocation breakpoint in this sample. Analysis of the large-insert mate-pairs alignments identified two breakpoint regions in this case, indicative of an event more complex than a simple, balanced translocation. In this case, paired-reads mapped to two locations in IGH separated by over 30,000 bp of sequence (see below). As there is no sequence captured and sequenced from this region, there is no way to tell whether these are two different translocations in the same sample or a single, complex event resulting from further rearrangement of the IGH locus. Further investigation of the mapping location of the soft-clipped reads may help to resolve the exact IGH breakpoints in this case.
 
-![clump_bcl2_IGH_example2.png](https://github.com/pughlab/Clump/blob/master/clump_bcl2_IGH_example2.png)
+![clump_bcl2_IGH_example2.png](https://user-images.githubusercontent.com/10787072/41672186-53ec5ef8-7487-11e8-80c6-107705c771e9.png)
 
-![clump_bcl2_IGH_example3.png](https://github.com/pughlab/Clump/blob/master/clump_bcl2_IGH_example3.png)
+![clump_bcl2_IGH_example3.png](https://user-images.githubusercontent.com/10787072/41672186-53ec5ef8-7487-11e8-80c6-107705c771e9.png)
 
 ### EML4-ALK ###
-![clump_EML4-ALK_example.png](https://github.com/pughlab/Clump/blob/master/clump_EML4-ALK_example.png)
+![clump_EML4-ALK_example.png](https://user-images.githubusercontent.com/10787072/41672185-53d95484-7487-11e8-8b1c-1be4470049b0.png)
 
 The EML4-ALK fusion arises from a large inversion on chromosome 2. Therefore, there are no interchromosomal mate-pairs in this example. Rather, the large-insert reads are colored grey as both mates map to the same chromosome. Most informative in this case are the soft-clipped reads that indicate a potential short stretch of retained sequence between the two soft-clipped start points. This is very likely a short stretch of sequence homology between the two inversion breakpoints, a common mediator of structural rearrangement in cancer. At the top of the read track, there is one read with two stretches of soft-clipped bases that are inconsistent with the pattern of soft-clipping in the other seven soft-clipped reads. This is likely a mapping artifact and it does not support or refute the presence of an EML4-ALK rearrangement.
 
 ### EWS-FLI ###
-![clump_EWS-FLI_example.png](https://github.com/pughlab/Clump/blob/master/clump_EWS-FLI_example.png)
+![clump_EWS-FLI_example.png](https://user-images.githubusercontent.com/10787072/41672184-53c89ac2-7487-11e8-9645-e5bb445feef8.png)
 
 In this example, the large-insert reads are found only on one side of the stack of soft-clipped reads. The soft-clipped reads were found as CluMP searches within a defined window around the cluster of large-insert alignments.
 
 ### PML-RARA ###
-![clump_PML-RARA_example.png](https://github.com/pughlab/Clump/blob/master/clump_PML-RARA_example.png)
+![clump_PML-RARA_example.png](https://user-images.githubusercontent.com/10787072/41672183-53b543c8-7487-11e8-8a0f-d18f3d606924.png)
 
 This appears to be a balanced translocation with excellent read support from large-insert pairs and soft-clipped reads. One of the large-insert reads appears to have a single base crossing the breakpoint and may be counted twice in the CluMP output.
 
 ### BCR-ABL replicates ###
-![clump_BCR-ABL_example.png](https://github.com/pughlab/Clump/blob/master/clump_BCR-ABL_example.png)
+![clump_BCR-ABL_example.png](https://user-images.githubusercontent.com/10787072/41672182-53a36752-7487-11e8-9d48-4df8d7594843.png)
 
 Megan Hanna from the Center for Cancer Genome Discovery provided primary bam files from three replicate runs of a single cancer sample. The above screenshot contains three split-screen views of the ABL1 and BCR breakpoint regions detected in this these three replicates. In this case, there appear to be multiple soft-clipping start sites suggesting there may be complex breakpoint structure or multiple clones in the cancer specimen. Across the replicates, the breakpoint regions and soft-clipping boundaries are consistent, suggesting these are reflective of the underlying tumor DNA sequence and not technical artifacts.
 
 ## Common false positive calls ##
 ### ZNF708 ###
-![clump_false_positives_ZNF708.png](https://github.com/pughlab/Clump/blob/master/clump_false_positives_ZNF708.png)
+![clump_false_positives_ZNF708.png](https://user-images.githubusercontent.com/10787072/41672181-53920340-7487-11e8-8fab-29c566eee51d.png)
 
 This repetitive region is homologous to several other locations in the genome. As a result, reads mapped to this location have mates aligned to many different chromosomes as indicated by the myriad read colors in the above screenshot (each color represents the chromosomal to which the read-mate was aligned). There are also several imperfect alignments, as evidenced the many reads with soft-clipped bases. This region may be a good candidate for a blacklist of frequent false positive calls.
 
 ### LINC000486 ###
-![clump_false_positives_LINC000486.png](https://github.com/pughlab/Clump/blob/master/clump_false_positives_LINC000486.png)
+![clump_false_positives_LINC000486.png](https://user-images.githubusercontent.com/10787072/41672180-537d6fa2-7487-11e8-8772-477bc4ff668b.png)
 
 Many polyG reads are aligned to this region due to this long stretch of G-rich sequence (orange in the reference sequence track). Since the sequence identity is good, these reads have high mapping quality and are therefore used by CluMP. This region may be a good candidate for a blacklist of frequent false positive calls.
 
